@@ -15,7 +15,7 @@ for ( $i = 0; $i < 5; $i++){
     echo $despesas[$i]. "<br>";
 }
 
-unset ($despesas);//Apaga / Distroi o Vetor
+unset ($despesas);//Apaga / Destroi o Vetor
 $despesas['mercado'] = 345.55;
 $despesas['estacionamento'] = 135.00;
 $despesas['alimentacao'] = 600.00;
@@ -29,4 +29,31 @@ foreach ($despesas as $nome /*indice*/ => $gasto) {
     echo "$nome: R$ ". number_format ($gasto, 2, ',','.')."<br>";
 
 }
+"<br><br><br>";
 
+$diasemana[0] = 'Dia Livre'; 
+$diasemana[1] = 'Aula Dev Web';
+$diasemana[2] = 'Aula PI' ;
+$diasemana[3] = 'Aula PHP' ;
+$diasemana[4] = 'Aula android';
+$diasemana[5] = 'Descanso';
+$diasemana[6] = 'Mais Descanso';
+
+for ( $i = 0; $i < 7; $i++){
+
+    echo $diasemana[$i]. "<br>";
+}
+
+/*unset ($diasemana);
+
+$diasemana ['Segunda'] = 'Dia Livre' ;
+$diasemana ['Terça'] = 'Aula Dev Web';
+$diasemana ['Quarta'] = 'Aula PI' ; 
+$diasemana ['Quinta'] = 'Aula PHP' ;
+$diasemana ['Sexta'] = 'Aula android' ;
+$diasemana ['Sabado'] = 'Descanso' ;
+$diasemana ['Domingo'] = 'Mais Descanso';
+
+
+echo "<br>diasemana<br>";
+*/
