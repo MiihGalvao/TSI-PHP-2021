@@ -44,7 +44,7 @@ for ( $i = 0; $i < 7; $i++){
     echo $diasemana[$i]. "<br>";
 }
 
-/*unset ($diasemana);
+unset ($diasemana);
 
 $diasemana ['Segunda'] = 'Dia Livre' ;
 $diasemana ['Terça'] = 'Aula Dev Web';
@@ -54,6 +54,10 @@ $diasemana ['Sexta'] = 'Aula android' ;
 $diasemana ['Sabado'] = 'Descanso' ;
 $diasemana ['Domingo'] = 'Mais Descanso';
 
+foreach ($diasemana as $rotina => $feito) {
 
-echo "<br>diasemana<br>";
-*/
+    echo "<br>$rotina: $feito \n";
+
+}
+
+
