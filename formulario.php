@@ -14,5 +14,7 @@
             <input type="password" id="password" name="password" autocomplete="off">
             <input type="submit" value="Entrar">
         </form>
+        <br><br>
+        <a href= Disciplina.html>Ex de disciplina</a>
     </body>
 </html>
