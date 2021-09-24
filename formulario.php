@@ -15,6 +15,6 @@
             <input type="submit" value="Entrar">
         </form>
         <br><br>
-        <a href= Disciplina.html>Ex de disciplina</a>
+        <a href="appDisciplina/disciplina.html">App Disciplina (outro formulário)</a>
     </body>
 </html>

@@ -23,10 +23,36 @@ echo '<br><br>Ela ocorre no dia ' . $_POST['dia'];
 
 echo '<br><br>Descrição ' . $_POST['desc'];
 
-//Abro o arquivo para gravar mais coisas nele
-$arquivo = fopen('bancodedados.csv', 'a');
+$bd_dsn = 'mysql:host=localhost;port=3306;dbname=ling_serv';
+$bd_user = 'root';
+$bd_pass = '';
 
-$dia = $_POST['dia'];
+//Conectando com o banco MySQL
+$bd = new PDO($bd_dsn, $bd_user, $bd_pass);
+
+//Preparamos a consulta para evitar SQL Injection
+$stms = $bd->prepare('      INSERT disciplinas
+                                    (nome, professor, dia, descricao, end_ip)
+                            VALUES
+                                    (:nome, :professor, :dia, :descricao, :end_id)');
+
+$valores[':nome'] = $_POST['nome'];
+$valores[':professor'] = $_POST['nome'];
+$valores[':dia'] = $_POST['nome'];
+$valores[':descricao'] = $_POST['desc'];
+$valores[':end_id'] = $_POST['REMOTE_ADDR'];
+
+//Consulta SQL
+    if ($stmt->execute($valores) ){
+
+        
+    }
+
+
+//Abro o arquivo para gravar mais coisas nele
+//$arquivo = fopen('bancodedados.csv', 'a');
+
+//$dia = $_POST['dia'];
 
 //Forma não muito elegante
 //$dia = substr( $dia, 8, 2) . '/' . substr( $dia, 5, 2) . '/' . substr( $dia, 0, 4);
