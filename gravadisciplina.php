@@ -1,58 +1,27 @@
 <?php
-
-/*echo "A disciplina é  " . $_POST['nome'] . " e o nome do professor é " . $_POST['prof'];
-
-echo "<br><br>";
-
-echo "A descrição da disciplina é: " . $_POST['desc'] "e o dia da disciplina é:" . $_POST['date'];
-
-$arquivo = fopen('bancodedados.csv', 'a');
-
-fwrite ($arquivo, $_POST ['nome'] . ';' . $_POST['prof'] . ';' . $_POST['data'] . ';' . $_POST['desc']); 
-*/
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+$_POST['nome']  = $_POST['nome']    ?? '';
+$_POST['prof']  = $_POST['prof']    ?? '';
+$_POST['dia']   = $_POST['dia']     ?? '';
+$_POST['desc']  = $_POST['desc']    ?? '';
+
+if( empty($_POST['nome']) || empty($_POST['dia']) ){//Verifica se os campos obrigatórios foram informados
+
+    die('<br><br>ERRO! Os campos nome e dia são obrigatórios!');
+}
+
 echo 'A disciplina é ' . $_POST['nome'];
-
 echo '<br><br>O professor é o ' . $_POST['prof'];
-
 echo '<br><br>Ela ocorre no dia ' . $_POST['dia'];
-
 echo '<br><br>Descrição ' . $_POST['desc'];
 
-$bd_dsn = 'mysql:host=localhost;port=3306;dbname=ling_serv';
-$bd_user = 'root';
-$bd_pass = '';
-
-//Conectando com o banco MySQL
-$bd = new PDO($bd_dsn, $bd_user, $bd_pass);
-
-//Preparamos a consulta para evitar SQL Injection
-$stms = $bd->prepare('      INSERT disciplinas
-                                    (nome, professor, dia, descricao, end_ip)
-                            VALUES
-                                    (:nome, :professor, :dia, :descricao, :end_id)');
-
-$valores[':nome'] = $_POST['nome'];
-$valores[':professor'] = $_POST['nome'];
-$valores[':dia'] = $_POST['nome'];
-$valores[':descricao'] = $_POST['desc'];
-$valores[':end_id'] = $_POST['REMOTE_ADDR'];
-
-//Consulta SQL
-    if ($stmt->execute($valores) ){
-
-        
-    }
-
-
 //Abro o arquivo para gravar mais coisas nele
-//$arquivo = fopen('bancodedados.csv', 'a');
+$arquivo = fopen('bancodedados.csv', 'a');
 
-//$dia = $_POST['dia'];
+$dia = $_POST['dia'] ?? date('Y-m-d');
 
 //Forma não muito elegante
 //$dia = substr( $dia, 8, 2) . '/' . substr( $dia, 5, 2) . '/' . substr( $dia, 0, 4);
