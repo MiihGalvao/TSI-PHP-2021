@@ -3,6 +3,17 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+//Controle de acesso, se o usuário estiver "logado", pode acessar o conteúdo
+session_start();
+
+if(!isset($_SESSION['id'])){
+
+    echo 'Faça o login antes!  <a href="login.html">login<a>';
+    exit();
+}
+//FIM controle de acesso
+
+
 $bd_dsn = 'mysql:host=localhost;port=3306;dbname=ling_serv';
 $bd_user = 'root';
 $bd_pass = '';
