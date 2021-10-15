@@ -3,16 +3,14 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+require_once('sessao/controle.php');
+require_once('banco/conecta.php');
+
 $nome = $_POST['nome'] ?? false;
 
 if ( $nome ) {
 
-    $bd_dsn = 'mysql:host=localhost;port=3306;dbname=ling_serv';
-    $bd_user = 'root';
-    $bd_pass = '';
     
-    //Conectamos com o Banco MySQL
-    $bd = new PDO($bd_dsn, $bd_user, $bd_pass);
 
     $stmt = $bd->prepare('INSERT INTO colegas (nome) VALUES (:nome)');
 
