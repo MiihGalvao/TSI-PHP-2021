@@ -2,14 +2,39 @@
 
 include 'Usuario.class.php';
 
-$objUsuario = new Usuario;
+class main{
 
-echo "O atributo é: " . $objUsuario->nome . "<br><br>";
+    var $usuario;
 
-$objUsuario->addUser('Milena Galvao');
+    function run(){
 
-echo "<br><br>O atributo é: " . $objUsuario->nome . "<br><br>";
+        $this->instanciaUsuario();
 
-$objUsuario->addUser('Milena');
+        echo "O atributo é: " . $this->usuario->nome . "<br><br>";
 
-echo "<br><br>O atributo é: " . $objUsuario->nome . "<br><br>";
+
+
+$this->usuario->addUser('Milena Galvão');
++
++        echo "<br><br>O atributo é: " . $this->usuario->nome . "<br><br>";
++
++        $this->usuario->addUser('Milena');
++
++        echo "<br><br>O atributo é: " . $this->usuario->nome . "<br><br>";
++    }
++
++    function instanciaUsuario(){
++
++        $this->usuario = new Usuario;
++    }
++}
++
++$main = new Main;
++$main->run();
+}
+
+
+
+
+
+
